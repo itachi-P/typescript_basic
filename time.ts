@@ -1,4 +1,9 @@
-//色々なフォーマットで時間を表示するTypeScript
+/* ローカル環境(Node.js)で実行できるコード
+ただしreadlineモジュールはNode.jsの標準モジュールなので、
+ブラウザで実行する場合は、prompt()メソッドなどを使う必要がある。
+コードを実行することはできるが、VSCodeのPROBLEMSパネルに
+Cannot find というエラーが表示されるのは避けられない(?)
+*/
 
 import * as readline from 'readline';
 
@@ -42,4 +47,3 @@ async function main() {
 
 // メイン処理を実行
 main();
-
