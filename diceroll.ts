@@ -1,5 +1,4 @@
 //ローカルのNode.jsを使う前提。ブラウザ上では動かない
-// Usage: `$ node diceroll.ts 10`
 
 // サイコロを振る関数
 function rollDice(): number {
