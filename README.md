@@ -1,4 +1,4 @@
-# My first introduction to typescripts
+# My first introduction to TypeScript
 
 ## Learning Policy
 
@@ -9,9 +9,9 @@ GolangのUdemy教材3つ(※1)及び公式チュートリアル等をある程�
 その後React.js、
 更にはNext.js + Vercel + Supabase (+ Tailwind CSS?)といった組み合わせでWebアプリ開発予定
 
-※注釈1:一部は講師の意向に従い、GitHub公開は避けPrivateで保存する。
+※注釈1:一部は講師の意向に従い、GitHub公開は避けPrivateリポジトリにて管理する。
 
 ## Notice
 
-※基本的にコンソール上で動作するものとブラウザ上で動作するコードは混ぜない
-ブラウザ上で動作するものだけで纏めてディレクトリ構成を分けることにする
+※基本的にコンソール上(Node.js)で動作するものと、ブラウザ上で動作するコードは混ぜない
+ブラウザ上で動作する前提のものは、それだけで纏めてディレクトリ構成を分ける
