@@ -5,13 +5,17 @@
 Once I have some proficiency in Golang, resume learning TypeScript.
 After that, I plans to try React.js, Next.js, and Tailwind CSS.
 
-GolangのUdemy教材3つ(※1)及び公式チュートリアル等をある程度消化後、TypeScriptの学習を再開する。
-その後React.js、
-更にはNext.js + Vercel + Supabase (+ Tailwind CSS?)といった組み合わせでWebアプリ開発予定
+GolangのUdemy教材3つ(※1)及び公式チュートリアル等をある程度消化後、**TypeScript**の学習を再開する。
 
-※注釈1:一部は講師の意向に従い、GitHub公開は避けPrivateリポジトリにて管理する。
+~~その後React、~~ 一旦Reactを飛ばし、先にNext.js(+Vercel)から手を付けてみる
+
+更にはNext.js + Vercel + Supabase (+ Tailwind CSS?)といった組み合わせでWebアプリ開発予定
+- Next.jsではなくNuxt(Vue).jsも検討するが、可能なら双方で最低1つはアプリを作ってみる。
+
+###### ※注釈1:一部は講師の意向に従い、GitHub公開は避け*Privateリポジトリ*にて管理する。
 
 ## Notice
 
 ※基本的にコンソール上(Node.js)で動作するものと、ブラウザ上で動作するコードは混ぜない
+
 ブラウザ上で動作する前提のものは、それだけで纏めてディレクトリ構成を分ける
