@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const IndexPage: NextPage = () => {
 	//猫画像のURLを保持するためにuseStateを使う。初期値は空文字列
 	const [imageUrl, setImageUrl] = useState("");
-	//API呼び出し中かどうかを管理する変数を宣言。初期値は呼び出し中を意味するtrue
+	//API呼び出し中かどうかを管理する。初期値は呼び出し中を意味するtrue
 	const [loading, setLoading] = useState(true);
 
 	//コンポーネントがマウントされた時にAPIから画像情報を取得する
@@ -19,15 +19,24 @@ const IndexPage: NextPage = () => {
 		});
 	}, []);//第2引数に空配列を指定することで、コンポーネントがマウントされた時のみ実行される
 
-	//API読み込み中でなければ(loading == false)、画像を表示する
-	//JSXの{}内には、JavaScriptの式は記述できるが、if等の文は記述できない
-	return <div>{loading || <img src={imageUrl} />}</div>;
+	//ボタンをクリックした時に新しい画像を読み込む処理
+	const handleClick = async () => {
+		setLoading(true);//読み込み中フラグを立てる
+		const newImage = await fetchImage();
+		setImageUrl(newImage.url);
+		setLoading(false);
+	};
+	return (
+		<div>
+			<button onClick={handleClick}>他のにゃんこも見る</button>
+			<div>{loading || <img src={imageUrl} />}</div>
+		</div>
+	);
 };
 export default IndexPage;
 
-//下のfetchImage関数の戻り値の型を定義(any型でなく限定する)
+//下のfetchImage関数の戻り値の型を定義(any型でなく制限をかける)
 type Image = {
-	//APIレスポンスには他の情報も含まれるが、今回必要なのはURLだけなので他は省略
 	url: string;
 };
 
@@ -43,9 +52,3 @@ const fetchImage = async (): Promise<Image> => {
 	console.log(images);
 	return images[0];
 };
-
-//テスト用コード
-// fetchImage().then((image) => {
-// 	console.log(image.url);
-// 	//console.log(image.alt);//型Imageにaltを定義していないのでエラーになる
-// });
