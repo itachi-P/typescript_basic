@@ -1,23 +1,17 @@
 import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
+import styles from "./index.module.css"; //CSS Modulesの読み込み
 
 //[https://typescriptbook.jp/tutorials/nextjs]
 
-/* クライアントサイドで最初の画像を取得し表示していたのを、
-データフェッチAPIのgetServerSidePropsを使って、
-サーバーサイドで初期画像を取得するように変更 */
-
-// getServerSidePropsから渡されるpropsの型定義
 type Props = {
-	initialImageUrl: string; //初期画像のURL
+	initialImageUrl: string;
 };
 
-// ページコンポーネント関数にpropsを受け取る引数を追加
 const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
-	const [imageUrl, setImageUrl] = useState(initialImageUrl);//初期値を渡す
-	const [loading, setLoading] = useState(false);//初期状態はfalseにしておく
+	const [imageUrl, setImageUrl] = useState(initialImageUrl);
+	const [loading, setLoading] = useState(false);
 
-	//ボタンをクリックした時に新しい画像を読み込む処理
 	const handleClick = async () => {
 		setLoading(true);
 		const newImage = await fetchImage();
@@ -25,10 +19,15 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
 		setLoading(false);
 	};
 	return (
-		<div>
-			<button onClick={handleClick}>他のにゃんこも見る</button>
-			<div>{loading || <img src={imageUrl} />}</div>
-		</div>
+		//CSSを適用するために、classNameで指定する
+		<div className={styles.page}>
+			<button onClick={handleClick} className={styles.button}>
+				他のにゃんこも見る
+			</button>
+			<div className={styles.frame}>
+				{loading || <img src={imageUrl} className={styles.image} />}
+			</div>
+		</div >
 	);
 };
 export default IndexPage;
