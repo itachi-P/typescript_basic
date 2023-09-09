@@ -1,6 +1,11 @@
 // My first TypeScript program
 // TypeScriptのコンパイルはtscコマンドで行う
 
+/*毎回tscコマンドでコンパイルするのが面倒な場合、ts-nodeというパッケージを使うと、
+コンパイルと実行が同時に行われ、.jsファイルは作成されない。
+$ npm install -g ts-node
+$ npx ts-node increment.ts */
+
 // function greeter(person: string) {
 // 	return "Hello, " + person;
 // }
@@ -10,6 +15,11 @@
 function hello(name: string): void {
 	console.log("Hello " + name + "!");
 }
+
+//TypeScriptの変数宣言はletかconstを使う
+//let:再代入は可能/再宣言(同じ名前)は禁止(変数)
+//const:再代入も再宣言も禁止(定数)
+//昔からあるvarは問題が多い(再宣言も可能、スコープ無視等)ため使わない
 
 let your_name: string = "itachi-P";
 hello(your_name);
