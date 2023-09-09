@@ -10,11 +10,17 @@ function main() {
 	const args = process.argv.slice(2);
 	if (args.length !== 1) {
 		console.log('正しい引数を指定してください。');
-		console.log('使用法: node script.js <回数>');
+		console.log('使用法: node diceroll.js <回数>');
 		process.exit(1);
 	}
 
-	const count = parseInt(args[0], 10);
+	// 入力された値を数値に変換(これだと最初の文字が数字ならなんでも通る)
+	//const count= parseInt(args[0], 10);
+
+	// 入力された値がnumber型かどうかを判定(型安全)
+	//ただし、Number型に変換しているので、キャスト可能な文字列の数字は変換される
+	const count = Number(args[0]);
+
 	if (isNaN(count) || count <= 0) {
 		console.log('回数には正の整数を指定してください。');
 		process.exit(1);
